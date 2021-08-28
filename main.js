@@ -18,7 +18,7 @@ function displayLoading() {
     // to stop loading after some time
     setTimeout(() => {
         loader.classList.remove("display");
-    }, 5000);
+    }, 10000);
 }
 function hideLoading() {
     loader.classList.remove("display");
@@ -26,11 +26,11 @@ function hideLoading() {
 
 async function getMealList(){
     let input=d.getElementById('search-input').value.trim().toLowerCase();
+    displayLoading();
     try{
         if(input !==""){
             console.log(input)
         let fetchAPi=await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${input}`)
-        displayLoading();
         let response=await fetchAPi.json();
         // console.log( response.meals);
 
@@ -78,7 +78,7 @@ function mealReacipeMode(meal){
     // console.log(meals);
     mealdetailhtml=`
             <h2 class="recipe-title">${meals.strMeal}</h2>
-            <p class="recipe-category">${meals.strCategory}</p>
+            <p class="recipe-category">Category : ${meals.strCategory}</p>
 
             <div class="recipe-instruct">
             <h3>INSTRUCTIONS:</h3>
