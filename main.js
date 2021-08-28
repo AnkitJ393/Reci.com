@@ -1,5 +1,6 @@
 'use strict'
 let d=document;
+const container=d.querySelector('.container')
 const searchBtn=d.querySelector('.search-btn');
 const  mealList=d.getElementById('meal');
 const  mealDetailContent=d.querySelector('.meal-details-content');
@@ -13,8 +14,10 @@ recipeCloseBtn.addEventListener('click',()=>{
 
 
 async function getMealList(){
-    let input=d.getElementById('search-input').value.trim();
+    let input=d.getElementById('search-input').value.trim().toLowerCase();
     try{
+        if(input !==""){
+            console.log(input)
         let fetchAPi=await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${input}`)
         let response=await fetchAPi.json();
         console.log( response.meals)
@@ -42,13 +45,14 @@ async function getMealList(){
 
             });
             mealidContainer.classList.remove('notfind');
+            }
+            else{
+                html=`<p>Sorry , we didn't find any Meal.You Can Search Something else 😊</p>`
+                mealidContainer.classList.add('notfind');
+                YourSearch.textContent=""
+            }
+            mealidContainer.innerHTML=html;
         }
-        else{
-            html=`<p>Sorry , we didn't find any Meal.You Can Search Something else 😊</p>`
-            mealidContainer.classList.add('notfind');
-            YourSearch.textContent=""
-        }
-        mealidContainer.innerHTML=html;
     }catch(e){
         console.log(e);
     }
@@ -87,6 +91,13 @@ function mealReacipeMode(meal){
 
 
 }
+
+container.addEventListener('click',()=>{
+    if(mealDetailContent.parentElement.classList.contains('showRecipe')){
+        mealDetailContent.parentElement.classList.remove('showRecipe');
+    }
+})
+
 
 function getMealRecipe(e){
     e.preventDefault();
