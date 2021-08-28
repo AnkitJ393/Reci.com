@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicons/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicons/favicon.ico"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Reci.com</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="dist/css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="meal-wrapper">
+        <div class="meal-search">
+          <h2 class="title">Find Meals for your Ingredient</h2>
+          <blockquote>
+            Food is the what completes a Culture or an occasion.
+          </blockquote>
+          <cite>-- SomeOne on Earth</cite>
+
+          <div class="meal-search-box">
+            <input
+              type="text"
+              id="search-input"
+              class="search-content"
+              placeholder="Enter an Ingredient 🤤"
+            />
+            <button type="submit" class="search-btn" id="search=btn">
+              <i class="fas fa-search" style="border: none; outline: none"></i>
+            </button>
+          </div>
+
+          <div class="meal-result">
+            <h2 class="meal-result-title"></h2>
+            <div id="meal">
+              <div class="mealidcontainer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="meal-details">
+      <!-- recipe close btn -->
+      <button type="button" class="btn-recipe-close-btn" id="recipe-close-btn">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <!-- meal content -->
+      <div class="meal-details-content">
+        <!-- <h2 class="recipe-title">Meals Name</h2>
+        <p class="recipe-category">Category Name</p>
+
+        <div class="recipe-instruct">
+          <h3>INSTRUCTIONS:</h3>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad odio
+            eius, tempora quas porro aliquid suscipit voluptates voluptatibus
+            natus molestias excepturi, sit odit eos, temporibus ex ipsum dicta
+            incidunt sed.
+          </p>
+        </div>
+        <div class="recipe-meal-img">
+          <img
+            src="https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_960_720.jpg"
+            alt="food"
+          />
+        </div>
+        <div class="recipe-link">
+          <a href="#" target="_blank">Watch Video</a>
+        </div> -->
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
