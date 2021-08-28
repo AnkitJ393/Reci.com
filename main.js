@@ -7,11 +7,22 @@ const  mealDetailContent=d.querySelector('.meal-details-content');
 const  recipeCloseBtn=d.querySelector('.btn-recipe-close-btn');
 const mealidContainer=d.querySelector('.mealidcontainer');
 const YourSearch=d.querySelector(".meal-result-title");
+const loader=d.getElementById('loading');
 
 recipeCloseBtn.addEventListener('click',()=>{
     mealDetailContent.parentElement.classList.remove('showRecipe');
 })
 
+function displayLoading() {
+    loader.classList.add("display");
+    // to stop loading after some time
+    setTimeout(() => {
+        loader.classList.remove("display");
+    }, 5000);
+}
+function hideLoading() {
+    loader.classList.remove("display");
+}
 
 async function getMealList(){
     let input=d.getElementById('search-input').value.trim().toLowerCase();
@@ -19,8 +30,9 @@ async function getMealList(){
         if(input !==""){
             console.log(input)
         let fetchAPi=await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${input}`)
+        displayLoading();
         let response=await fetchAPi.json();
-        console.log( response.meals)
+        // console.log( response.meals);
 
         let html="";
         if(response.meals){
@@ -51,6 +63,7 @@ async function getMealList(){
                 mealidContainer.classList.add('notfind');
                 YourSearch.textContent=""
             }
+            hideLoading();
             mealidContainer.innerHTML=html;
         }
     }catch(e){
